@@ -1,4 +1,4 @@
-backup-fortios
+Ansible Role for backup Fortinet FortiGate config
 =========
 
 Fortinet FortiGate config backup via ansible playbook
