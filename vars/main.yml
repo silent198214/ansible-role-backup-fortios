@@ -1,0 +1,5 @@
+---
+ssh_option: "StrictHostKeyChecking=no"
+backup_local_path: "{{ role_path }}/files"
+backup_srv_path: "/backup/network/{{ inventory_hostname }}/"
+backup_filename: "{{ lookup('pipe', 'date +%Y%m%d') }}_{{ inventory_hostname }}.conf"

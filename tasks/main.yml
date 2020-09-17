@@ -1,0 +1,11 @@
+---
+- name: backup fortios config to local file
+  shell: scp -P {{ device_port }} -o {{ ssh_option }} {{ device_user }}@{{ ansible_host }}:fgt-config {{ backup_local_path }}/{{ backup_filename }}
+
+- name: copy backup file to backup server
+  shell: ncftpput -m backupftp {{ backup_srv_path }} {{ role_path }}/files/{{ backup_filename }}
+
+- name: delete local backup file
+  file:
+    path: "{{ backup_local_path }}/{{ backup_filename }}"
+    state: absent    
